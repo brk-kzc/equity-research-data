@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "type": "catalysts",
+  "ticker": "GOOGL",
+  "generated_at": "2026-11-19T01:30:28+00:00",
+  "as_of": "2026-11-18",
+  "skill": "equity-research:catalyst-calendar",
+  "summary": "Near term: Anthropic starts trading Nov 19 (first public mark on Alphabet's stake). The year ends with the FOMC (Dec 9) and CPI (Dec 10). The big events are the D.C. Circuit search-appeal argument (January 2027) and Q4 earnings with the 2027 capex guide (estimated Feb 3, 2027).",
+  "horizon_days": 120,
+  "events": [
+    {"id": "googl-2026q3-earnings", "date": "2026-10-28", "date_confirmed": true, "timing": "after_close", "title": "Q3 2026 earnings", "category": "earnings", "impact": "high", "description": "Quarterly results and call.", "status": "occurred", "outcome": "Revenue +25% to $127.6B; GAAP EPS $2.12 missed ~$3.01 on an $8.7B equity-securities loss; stock fell ~12% the next day.", "source_url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm"},
+    {"id": "googl-adtech-remedies", "date": "2026-09-17", "date_confirmed": true, "title": "Ad-tech antitrust remedies ruling (E.D. Va.)", "category": "legal", "impact": "high", "description": "Remedy decision in the DOJ ad-tech case.", "status": "occurred", "outcome": "No divestiture; behavioral changes to AdX/publisher ad server plus an internal compliance monitor; Google plans to appeal liability.", "source_url": "https://www.pymnts.com/cpi-posts/google-dodges-ad-tech-breakup-as-judge-imposes-six-year-oversight/"},
+    {"id": "anthropic-ipo-2026-11-19", "date": "2026-11-19", "date_confirmed": true, "timing": "market_open", "title": "Anthropic (ANT) begins trading; Google's ~$10B Class N purchase settles", "category": "corporate", "impact": "high", "description": "IPO priced at $83, above range. Gives Alphabet's stake a public mark, so Q4 other income will swing with ANT's share price.", "status": "upcoming", "source_url": "https://fortune.com/2026/11/18/anthropic-prices-ipo-83-per-share-1-5-trillion/"},
+    {"id": "googl-class-action-lead-plaintiff", "date": "2026-12-01", "date_confirmed": true, "title": "Lead-plaintiff deadline, Gemini 3.5 Pro securities class action", "category": "legal", "impact": "low", "description": "Suit over statements on the Gemini 3.5 Pro launch timing (class period May 19–Jul 16, 2026).", "status": "upcoming", "source_url": "https://www.glancylaw.com/cases/alphabet-inc-1/"},
+    {"id": "us-jobs-2026-12-04", "date": "2026-12-04", "date_confirmed": true, "timing": "08:30 ET", "title": "US November jobs report", "category": "macro", "impact": "low", "description": "Last major labor print before the FOMC.", "status": "upcoming", "source_url": "https://news.ifyouspent.com/en/news/fed-december-2026-meeting-jobs-cpi-what-to-watch"},
+    {"id": "googl-dividend-2026-12", "date": "2026-12-07", "date_confirmed": true, "title": "Common dividend record date ($0.22; payable Dec 14)", "category": "corporate", "impact": "low", "description": "Quarterly dividend.", "status": "upcoming", "source_url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm"},
+    {"id": "fomc-2026-12-09", "date": "2026-12-09", "date_confirmed": true, "timing": "14:00 ET", "title": "FOMC rate decision + projections", "category": "macro", "impact": "medium", "description": "Markets were pricing a quarter-point hike after the October CPI; higher rates weigh on long-duration tech multiples.", "status": "upcoming", "source_url": "https://www.federalreserve.gov/newsevents/2026-december.htm"},
+    {"id": "us-cpi-2026-12-10", "date": "2026-12-10", "date_confirmed": true, "timing": "08:30 ET", "title": "US November CPI", "category": "macro", "impact": "medium", "description": "Inflation print the day after the FOMC.", "status": "upcoming", "source_url": "https://www.financecalendar.com/event/us-cpi-report-december-2026/"},
+    {"id": "googl-search-appeal-argument", "date": "2027-01-15", "date_confirmed": false, "timing": "Day TBD in January 2027", "title": "D.C. Circuit oral argument: search monopoly cross-appeals", "category": "legal", "impact": "high", "description": "Google appeals liability and data-sharing remedies; DOJ seeks stronger remedies. The court set argument for the first suitable date in January 2027; the date shown is a placeholder.", "status": "upcoming", "source_url": "https://ecorpit.com/google-search-antitrust-appeal-2027-seo-ads/"},
+    {"id": "googl-2026q4-earnings", "date": "2027-02-03", "date_confirmed": false, "timing": "after_close", "title": "Q4 2026 earnings + 2027 capex guide", "category": "earnings", "impact": "high", "description": "Estimated date (not yet announced by Alphabet). Consensus about $142.6B revenue / $3.14 EPS. Management promised 2027 capex detail on this call.", "status": "upcoming", "source_url": "https://en.arincen.com/instruments/GOOGL/earnings"}
+  ],
+  "sources": [
+    {"title": "Anthropic prices IPO at $83 per share — Fortune", "url": "https://fortune.com/2026/11/18/anthropic-prices-ipo-83-per-share-1-5-trillion/", "accessed": "2026-11-18"},
+    {"title": "Google and Nvidia commit $10 billion each to Anthropic IPO — Dataconomy", "url": "https://dataconomy.com/2026/11/12/google-and-nvidia-commit-10-billion-each-to-anthropic-ipo/", "accessed": "2026-11-18"},
+    {"title": "Federal Reserve — December 2026 calendar", "url": "https://www.federalreserve.gov/newsevents/2026-december.htm", "accessed": "2026-11-18"},
+    {"title": "The December Fed meeting: what the jobs and CPI data mean", "url": "https://news.ifyouspent.com/en/news/fed-december-2026-meeting-jobs-cpi-what-to-watch", "accessed": "2026-11-18"},
+    {"title": "US CPI Report December 2026 — Finance Calendar", "url": "https://www.financecalendar.com/event/us-cpi-report-december-2026/", "accessed": "2026-11-18"},
+    {"title": "Alphabet Inc. class action — Glancy Prongay Wolke & Rotter", "url": "https://www.glancylaw.com/cases/alphabet-inc-1/", "accessed": "2026-11-18"},
+    {"title": "Google antitrust appeal 2027: D.C. Circuit — eCorpIT", "url": "https://ecorpit.com/google-search-antitrust-appeal-2027-seo-ads/", "accessed": "2026-11-18"},
+    {"title": "Alphabet (GOOGL) earnings — Arincen", "url": "https://en.arincen.com/instruments/GOOGL/earnings", "accessed": "2026-11-18"},
+    {"title": "Alphabet Announces Third Quarter 2026 Results (8-K Ex. 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm", "accessed": "2026-11-18"},
+    {"title": "Google Dodges Ad-Tech Breakup — PYMNTS", "url": "https://www.pymnts.com/cpi-posts/google-dodges-ad-tech-breakup-as-judge-imposes-six-year-oversight/", "accessed": "2026-11-18"}
+  ],
+  "disclaimer": "Automated research output generated by an AI agent from public sources. Not investment advice."
+}

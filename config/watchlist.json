@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "timezone": "America/New_York",
+  "settings": {
+    "preview_window_days": 14,
+    "post_earnings_window_days": 3,
+    "catalyst_refresh_days": 7,
+    "thesis_review_days": 90,
+    "sector_refresh_day_of_month": 1,
+    "catalyst_horizon_days": 120
+  },
+  "stocks": [
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "sector": "Communication Services",
+      "industry": "Interactive Media & Services",
+      "active": true,
+      "reinitiate": false
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "type": "index",
+  "generated_at": "2026-11-19T01:30:13+00:00",
+  "last_run_log": "data/runs/2026-11-18.json",
+  "stocks": [
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "phase": "quiet",
+      "price": 282.44,
+      "price_date": "2026-11-18",
+      "stance": "positive",
+      "conviction": "medium",
+      "thesis_status": "intact",
+      "fair_value": {
+        "low": 268,
+        "base": 322,
+        "high": 388,
+        "currency": "USD",
+        "method": "Low 20x / base 24x our FY2027E EPS of $13.40; high 26x consensus $14.92",
+        "horizon_months": 12
+      },
+      "upside_to_base_pct": 14.0,
+      "next_earnings": {
+        "quarter": "2026-Q4",
+        "date": "2027-02-03",
+        "confirmed": false,
+        "timing": "after_close",
+        "preview_done": false
+      },
+      "headline": "Anthropic prices above range at $83 \u2014 Alphabet's stake gets a public mark Thursday",
+      "latest": "data/GOOGL/latest.json"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "type": "earnings",
+  "ticker": "GOOGL",
+  "generated_at": "2026-11-19T01:30:28+00:00",
+  "as_of": "2026-11-18",
+  "skill": "equity-research:earnings-analysis",
+  "quarter": "2026-Q3",
+  "report_date": "2026-10-28",
+  "verdict": "mixed",
+  "summary": "Revenue up 25% to $127.6B on a doubling of Google Cloud, but GAAP EPS of $2.12 missed ~$3.01 consensus, mainly because of an $8.7B loss on equity securities. Capex of $51.4B pushed free cash flow to -$9.1B and the stock fell about 12% the next day.",
+  "results": [
+    {"metric": "Total revenue", "period": "2026-Q3", "unit": "USD_bn", "consensus": 127.97, "actual": 127.577, "prior_year": 102.346, "yoy_pct": 24.7, "surprise_pct": -0.3, "result": "inline", "source": "Alphabet 8-K Ex. 99.1; consensus MarketBeat"},
+    {"metric": "Diluted EPS (GAAP)", "period": "2026-Q3", "unit": "USD", "consensus": 3.01, "actual": 2.12, "prior_year": 2.87, "yoy_pct": -26.1, "surprise_pct": -29.6, "result": "miss", "source": "Alphabet 8-K Ex. 99.1; consensus MarketBeat"},
+    {"metric": "Operating income", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 40.576, "prior_year": 31.228, "yoy_pct": 29.9, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Operating margin", "period": "2026-Q3", "unit": "pct", "consensus": null, "actual": 31.8, "prior_year": 30.5, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Google Search & other revenue", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 63.35, "prior_year": 56.567, "yoy_pct": 12.0, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "YouTube ads revenue", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 11.207, "prior_year": 10.261, "yoy_pct": 9.2, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Google Network revenue", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 7.455, "prior_year": 7.354, "yoy_pct": 1.4, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Subscriptions, platforms & devices revenue", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 14.29, "prior_year": 12.87, "yoy_pct": 11.0, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Google Cloud revenue", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 30.709, "prior_year": 15.157, "yoy_pct": 102.6, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Google Cloud operating income", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 11.121, "prior_year": 3.594, "yoy_pct": 209.4, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Capital expenditures", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 51.355, "prior_year": 23.953, "yoy_pct": 114.4, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1"},
+    {"metric": "Free cash flow", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": -9.065, "prior_year": 24.461, "result": "n/a", "source": "Alphabet 8-K Ex. 99.1 (prior year derived as OCF minus capex)"},
+    {"metric": "Google Cloud backlog", "period": "2026-Q3", "unit": "USD_bn", "consensus": null, "actual": 561, "result": "n/a", "source": "Zacks call recap"}
+  ],
+  "guidance": [
+    "FY2026 capex guidance kept at $195-205B; through September Alphabet had spent $132.0B.",
+    "Capex expected to 'increase significantly' in 2027; details promised on the Q4 call.",
+    "Q4 revenue faces a larger FX headwind than Q3 (mainly Search and YouTube ads), and Search laps a late-2025 acceleration.",
+    "TPU system sales expected to scale in Q4, with the significant majority of that revenue landing in 2027."
+  ],
+  "highlights": [
+    "Google Cloud revenue more than doubled to $30.7B and segment operating income tripled to $11.1B (about 36% margin).",
+    "Management said year-over-year Search query growth is the highest in five years.",
+    "Operating income grew 30% and operating margin reached 31.8% despite heavy depreciation and Alphabet-level costs.",
+    "External TPU systems sales contributed meaningfully to growth, with named customers including Apple for model pretraining."
+  ],
+  "lowlights": [
+    "GAAP EPS fell to $2.12 from $2.87: an $8.7B loss on equity securities cut EPS by $0.55, and interest expense rose to $0.97B from $0.14B.",
+    "Search & other grew 12%, slower than 15% a year earlier, and was roughly flat quarter over quarter.",
+    "Free cash flow was negative for a second straight quarter (-$9.1B) as capex reached $51.4B.",
+    "No buybacks in the first nine months of 2026; Alphabet instead issued $12.4B of stock through its ATM program and $28.7B of notes in Q3.",
+    "Other Bets operating loss widened to $2.0B from $1.4B."
+  ],
+  "stock_reaction_pct": -12.0,
+  "thesis_impact": "Supports the Cloud pillar (ahead of plan) and the full-stack AI pillar; weakens the capex-return/FCF pillar, which is now at risk. Search is holding up but slowing. Net: thesis intact at medium conviction, with FCF recovery the key thing to watch on the Q4 call.",
+  "sources": [
+    {"title": "Alphabet Announces Third Quarter 2026 Results (8-K Ex. 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm", "accessed": "2026-11-18"},
+    {"title": "Alphabet (GOOGL) Earnings Date and Reports — MarketBeat", "url": "https://www.marketbeat.com/stocks/NASDAQ/GOOGL/earnings/", "accessed": "2026-11-18"},
+    {"title": "Alphabet (GOOG) Q3 2026 earnings summary — Quartr", "url": "https://quartr.com/events/alphabet-goog-q3-2026_3ebmqmdr", "accessed": "2026-11-18"},
+    {"title": "Zacks: Alphabet Q3 2026 earnings call recap", "url": "https://www.zacks.com/stock/news/3023048/{https:/www.zackstrade.com/2019-1-dollar}", "accessed": "2026-11-18"},
+    {"title": "Alphabet Bulls Dig in After Messy Q3 — Benzinga", "url": "https://www.benzinga.com/analyst-stock-ratings/price-target/26/10/62705724/alphabet-bulls-dig-in-after-messy-q3-ai-stack-keeps-us-bullish-cantor-says", "accessed": "2026-11-18"},
+    {"title": "Google Cloud doubled, Alphabet burned $9 billion cash — Let's Data Science", "url": "https://letsdatascience.com/blog/google-cloud-doubled-alphabet-burned-9-billion-cash", "accessed": "2026-11-18"}
+  ],
+  "disclaimer": "Automated research output generated by an AI agent from public sources. Not investment advice."
+}

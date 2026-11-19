@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "type": "initiation",
+  "ticker": "GOOGL",
+  "generated_at": "2026-11-19T01:30:28+00:00",
+  "as_of": "2026-11-18",
+  "skill": "equity-research:initiating-coverage",
+  "summary": "Initiating with a positive stance and medium conviction. Alphabet is now a two-engine business (Search plus a fast-growing Cloud/TPU franchise) on a ~$500B revenue run rate, but a capex cycle near $200B in 2026 and higher in 2027 has turned free cash flow negative. Base fair value is about $322 (24x our FY2027E EPS of $13.40), roughly 14% above the $282.44 close.",
+  "company": {
+    "name": "Alphabet Inc.",
+    "exchange": "NASDAQ (GOOGL Class A; GOOG Class C)",
+    "sector": "Communication Services",
+    "industry": "Interactive Media & Services",
+    "hq": "Mountain View, California",
+    "employees": 204757,
+    "description": "Holding company for Google. Google Services covers Search, YouTube, Android, Chrome, Play, subscriptions and devices, and is monetized mainly through advertising. Google Cloud sells infrastructure (including TPU systems), data/AI platforms, Gemini models and Workspace to enterprises. Other Bets includes Waymo and Verily. Alphabet also holds large stakes in private and newly public AI and space companies, which make reported earnings volatile."
+  },
+  "segments": [
+    {"name": "Google Search & other", "revenue_ttm": null, "revenue_q3_2026": 63.35, "share_pct": 49.7, "growth_yoy_pct": 12.0, "description": "Search ads including AI Overviews and AI Mode; the core profit pool."},
+    {"name": "YouTube ads", "revenue_ttm": null, "revenue_q3_2026": 11.207, "share_pct": 8.8, "growth_yoy_pct": 9.2, "description": "Brand and performance video ads, Shorts, connected TV."},
+    {"name": "Google Network", "revenue_ttm": null, "revenue_q3_2026": 7.455, "share_pct": 5.8, "growth_yoy_pct": 1.4, "description": "Ads on third-party sites via AdSense/AdMob/Ad Manager; the subject of the ad-tech antitrust case."},
+    {"name": "Subscriptions, platforms & devices", "revenue_ttm": null, "revenue_q3_2026": 14.29, "share_pct": 11.2, "growth_yoy_pct": 11.0, "description": "YouTube Premium/TV, Google One, Play, Pixel hardware."},
+    {"name": "Google Cloud", "revenue_ttm": null, "revenue_q3_2026": 30.709, "share_pct": 24.1, "growth_yoy_pct": 102.6, "description": "GCP infrastructure, AI platform and models, TPU systems sales, Workspace. Q3 backlog about $561B."},
+    {"name": "Other Bets", "revenue_ttm": null, "revenue_q3_2026": 0.372, "share_pct": 0.3, "growth_yoy_pct": 8.1, "description": "Waymo, Verily and others; Q3 operating loss of $2.0B."}
+  ],
+  "market_data": {"price": 282.44, "price_date": "2026-11-18", "market_cap": 3472.3, "shares_out": 12.294, "currency": "USD", "unit": "USD_bn (market cap), bn shares"},
+  "financials": {
+    "currency": "USD",
+    "unit": "USD_bn except EPS",
+    "periods": [
+      {"period": "FY2024", "kind": "actual", "revenue": 350.0, "operating_income": 112.4, "operating_margin_pct": 32.1, "net_income": 100.1, "eps_diluted": 8.04, "capex": null, "free_cash_flow": null},
+      {"period": "FY2025", "kind": "actual", "revenue": 402.8, "operating_income": 129.0, "operating_margin_pct": 32.0, "net_income": 132.2, "eps_diluted": 10.81, "capex": 91.4, "free_cash_flow": 73.3},
+      {"period": "9M2026", "kind": "actual", "revenue": 357.269, "operating_income": 121.042, "operating_margin_pct": 33.9, "net_income": 200.855, "eps_diluted": 16.33, "capex": 131.953, "free_cash_flow": -4.804},
+      {"period": "FY2026E", "kind": "estimate", "revenue": 498.8, "operating_income": 164.2, "operating_margin_pct": 32.9, "net_income": 239.2, "eps_diluted": 19.43, "capex": 200.0, "free_cash_flow": -18.0},
+      {"period": "FY2026E", "kind": "consensus", "revenue": null, "operating_income": null, "net_income": null, "eps_diluted": 19.71, "capex": null, "free_cash_flow": null},
+      {"period": "FY2027E", "kind": "estimate", "revenue": 600.0, "operating_income": 200.0, "operating_margin_pct": 33.3, "net_income": 166.8, "eps_diluted": 13.40, "capex": 300.0, "free_cash_flow": -40.0},
+      {"period": "FY2027E", "kind": "consensus", "revenue": null, "operating_income": null, "net_income": null, "eps_diluted": 14.92, "capex": null, "free_cash_flow": null}
+    ],
+    "notes": "2026 GAAP EPS is inflated by very large unrealized gains on equity securities in Q1–Q2 (nine-month OI&E $127.5B). Our FY2026E and FY2027E assume no further mark-to-market gains or losses, which is why FY2027E EPS is below FY2026E. FY2025 FCF = nine-month 2025 FCF ($48.7B) + Q4 2025 FCF ($24.6B). Consensus: Yahoo Finance (FY2026, GAAP avg) and MarketBeat (FY2027), as of Nov 2026."
+  },
+  "valuation": {
+    "methods": [
+      {"name": "P/E on our FY2027E EPS", "value_per_share": 322.0, "assumptions": "24x $13.40. 24x is mid-range of Alphabet's 5-year average P/E (about 23–25x per TradingNews), applied to earnings that exclude investment marks."},
+      {"name": "P/E on consensus FY2027E EPS, discounted", "value_per_share": 313.0, "assumptions": "21x $14.92. Multiple cut 3 turns for negative FCF, share issuance and rising rates."},
+      {"name": "Balance-sheet cross-check", "value_per_share": 11.4, "assumptions": "Net cash per share: ($265.1B cash and marketable securities - $125.1B long-term debt) / 12.294B shares. Shown for reference and not added to the methods above. Non-marketable stakes ($135.2B carrying value at Sep 30, before the Anthropic IPO mark) are excluded."}
+    ],
+    "fair_value": {"low": 268, "base": 322, "high": 388, "currency": "USD", "method": "Low 20x / base 24x our FY2027E EPS of $13.40; high 26x consensus $14.92", "horizon_months": 12}
+  },
+  "competitive_position": [
+    "Full AI stack: in-house models (Gemini), custom silicon (TPU, now sold externally), hyperscale cloud and consumer distribution (Search, Android, Chrome, YouTube). The Gemini app reports about 1B users.",
+    "Search remains the largest profit pool in digital advertising; management says query growth is at a five-year high as AI features add usage.",
+    "Google Cloud is the fastest-growing hyperscaler at this scale (+103% YoY) with a $561B backlog, although some of that growth is TPU hardware sales with different margins and cash timing.",
+    "Balance sheet is still strong ($265B cash and securities) but has shifted from net buybacks to net issuance (ATM equity, $28.7B notes in Q3, $19B mandatory convertible preferred)."
+  ],
+  "key_risks": [
+    "Capex overbuild: 2026 capex of about $200B and a significant increase in 2027 could depress margins through depreciation and keep FCF negative if demand or pricing softens.",
+    "AI disruption of Search monetization: answer engines and agents could reduce ad clicks even as queries grow; Search growth already slowed to 12% from 15%.",
+    "Antitrust: the D.C. Circuit hears cross-appeals in the search case (argument expected January 2027), with the DOJ seeking stronger remedies; ad-tech behavioral remedies run under six years of oversight.",
+    "Dilution and financing: buybacks suspended, ATM equity issuance and rising interest expense.",
+    "Earnings volatility from marking large equity stakes (e.g. Anthropic, now public) to market.",
+    "Macro: the Fed raised rates in 2026, which pressures long-duration growth multiples."
+  ],
+  "stance": "positive",
+  "body_md": "## Investment summary\nAlphabet has two growth engines. Search still grows double digits, and Cloud doubled to a $123B annualized revenue run rate with 36% segment margins. The market is focused on the bill: capex jumped to $51.4B in Q3, free cash flow turned negative, and Alphabet is now raising equity and debt instead of buying back stock. Shares are about 31% below their high and trade near 19x consensus FY2027 EPS.\n\nOur view: the business is executing, but returns on the AI build-out won't be visible until TPU deliveries and Cloud backlog convert to cash during 2027. We set a base fair value of $322 (24x our FY2027E EPS of $13.40, which is below consensus because we assume heavier depreciation), with a $268–$388 range.\n\n## What would change our view\nUpside: the 2027 capex guide (expected Feb 3, 2027) comes with a credible path back to positive FCF, Search holds at 10%+ growth, and the D.C. Circuit leaves remedies unchanged.\nDownside: Search growth drops below about 5%, Cloud margins compress sharply as hardware mix rises, or the appeal brings a default-payment ban or Chrome divestiture.",
+  "sources": [
+    {"title": "Alphabet Announces Third Quarter 2026 Results (8-K Ex. 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm", "accessed": "2026-11-18"},
+    {"title": "Alphabet Q4 2025 results — Verdict", "url": "https://www.verdict.co.uk/alphabet-q4-2025-results/", "accessed": "2026-11-18"},
+    {"title": "Alphabet Q4 2025 earnings summary — VectorShift", "url": "https://vectorshift.ai/research/companies/alphabet/earnings/2025-q4-summary", "accessed": "2026-11-18"},
+    {"title": "Alphabet (GOOGL) Stock Price — StockAnalysis", "url": "https://stockanalysis.com/stocks/googl/", "accessed": "2026-11-18"},
+    {"title": "Alphabet (GOOGL) Analyst Estimates — Yahoo Finance", "url": "https://finance.yahoo.com/quote/GOOGL/analysis/", "accessed": "2026-11-18"},
+    {"title": "Alphabet (GOOGL) Earnings — MarketBeat", "url": "https://www.marketbeat.com/stocks/NASDAQ/GOOGL/earnings/", "accessed": "2026-11-18"},
+    {"title": "Alphabet sits 31% below high into Anthropic debut — TradingNews", "url": "https://www.tradingnews.com/news/alphabet-googl-sits-31-below-408-61-high-into-anthropic-debut-reclaiming-296-opens-325-usd-target", "accessed": "2026-11-18"},
+    {"title": "Alphabet Posts $127.6B Q3 as 2027 Capex Set to Top $300B — AI Weekly", "url": "https://aiweekly.co/alerts/alphabet-posts-1276b-q3-with-google-cloud-up-103-to-307b-as-2027-capex-set-to", "accessed": "2026-11-18"},
+    {"title": "Google Dodges Ad-Tech Breakup as Judge Imposes Six-Year Oversight — PYMNTS", "url": "https://www.pymnts.com/cpi-posts/google-dodges-ad-tech-breakup-as-judge-imposes-six-year-oversight/", "accessed": "2026-11-18"},
+    {"title": "Google antitrust appeal 2027: D.C. Circuit — eCorpIT", "url": "https://ecorpit.com/google-search-antitrust-appeal-2027-seo-ads/", "accessed": "2026-11-18"}
+  ],
+  "disclaimer": "Automated research output generated by an AI agent from public sources. Not investment advice."
+}

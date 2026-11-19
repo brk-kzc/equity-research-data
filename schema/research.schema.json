@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/brk-kzc/equity-research-data/schema/research.schema.json",
+  "title": "Equity research output documents",
+  "description": "Every JSON file under data/ is one of these document types, selected by its `type` field.",
+  "oneOf": [
+    {"$ref": "#/$defs/state"},
+    {"$ref": "#/$defs/initiation"},
+    {"$ref": "#/$defs/thesis"},
+    {"$ref": "#/$defs/catalysts"},
+    {"$ref": "#/$defs/earnings_preview"},
+    {"$ref": "#/$defs/earnings"},
+    {"$ref": "#/$defs/model"},
+    {"$ref": "#/$defs/morning_note"},
+    {"$ref": "#/$defs/sector"},
+    {"$ref": "#/$defs/latest"},
+    {"$ref": "#/$defs/index"},
+    {"$ref": "#/$defs/run_log"}
+  ],
+  "$defs": {
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "datetime": {"type": "string", "format": "date-time"},
+    "nullable_date": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}]},
+    "num": {"type": ["number", "null"]},
+    "ticker": {"type": "string", "pattern": "^[A-Z.\\-]{1,10}$"},
+    "quarter": {"type": "string", "pattern": "^\\d{4}-Q[1-4]$", "description": "Fiscal quarter, e.g. 2026-Q3"},
+    "source": {
+      "type": "object",
+      "required": ["title", "url"],
+      "properties": {
+        "title": {"type": "string"},
+        "url": {"type": "string"},
+        "accessed": {"$ref": "#/$defs/date"}
+      }
+    },
+    "envelope": {
+      "type": "object",
+      "required": ["schema_version", "type", "ticker", "generated_at", "as_of", "summary", "sources"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "ticker": {"$ref": "#/$defs/ticker"},
+        "generated_at": {"$ref": "#/$defs/datetime"},
+        "as_of": {"$ref": "#/$defs/date"},
+        "skill": {"type": "string"},
+        "summary": {"type": "string", "description": "One- or two-sentence plain-text summary for cards and lists"},
+        "body_md": {"type": "string", "description": "Optional long-form markdown for a detail page"},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+        "disclaimer": {"type": "string"}
+      }
+    },
+    "metric": {
+      "type": "object",
+      "required": ["metric", "unit"],
+      "properties": {
+        "metric": {"type": "string"},
+        "period": {"type": "string"},
+        "unit": {"type": "string", "description": "e.g. USD_bn, USD, pct, x"},
+        "consensus": {"$ref": "#/$defs/num"},
+        "actual": {"$ref": "#/$defs/num"},
+        "prior_year": {"$ref": "#/$defs/num"},
+        "yoy_pct": {"$ref": "#/$defs/num"},
+        "surprise_pct": {"$ref": "#/$defs/num"},
+        "result": {"enum": ["beat", "miss", "inline", "n/a"]},
+        "source": {"type": "string"}
+      }
+    },
+    "period_financials": {
+      "type": "object",
+      "required": ["period", "kind"],
+      "properties": {
+        "period": {"type": "string", "description": "FY2025, 2026-Q3, FY2027E ..."},
+        "kind": {"enum": ["actual", "estimate", "consensus"]},
+        "revenue": {"$ref": "#/$defs/num"},
+        "operating_income": {"$ref": "#/$defs/num"},
+        "operating_margin_pct": {"$ref": "#/$defs/num"},
+        "net_income": {"$ref": "#/$defs/num"},
+        "eps_diluted": {"$ref": "#/$defs/num"},
+        "capex": {"$ref": "#/$defs/num"},
+        "free_cash_flow": {"$ref": "#/$defs/num"},
+        "segments": {"type": "object", "additionalProperties": {"$ref": "#/$defs/num"}}
+      }
+    },
+    "fair_value": {
+      "type": "object",
+      "required": ["low", "base", "high", "currency"],
+      "properties": {
+        "low": {"type": "number"}, "base": {"type": "number"}, "high": {"type": "number"},
+        "currency": {"type": "string"},
+        "method": {"type": "string"},
+        "horizon_months": {"type": "integer"}
+      }
+    },
+    "state": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "state"},
+        "initiated": {"type": "boolean"},
+        "initiated_on": {"$ref": "#/$defs/nullable_date"},
+        "phase": {"enum": ["not_initiated", "pre_earnings", "post_earnings", "quiet"]},
+        "last_earnings": {
+          "type": ["object", "null"],
+          "properties": {"quarter": {"$ref": "#/$defs/quarter"}, "date": {"$ref": "#/$defs/date"}, "analyzed": {"type": "boolean"}, "model_updated": {"type": "boolean"}, "thesis_checked": {"type": "boolean"}}
+        },
+        "next_earnings": {
+          "type": ["object", "null"],
+          "properties": {"quarter": {"$ref": "#/$defs/quarter"}, "date": {"$ref": "#/$defs/date"}, "confirmed": {"type": "boolean"}, "timing": {"enum": ["pre_market", "after_close", "unknown"]}, "preview_done": {"type": "boolean"}}
+        },
+        "last_run": {"type": "object", "additionalProperties": {"$ref": "#/$defs/date"}, "description": "task name -> date it last ran successfully"}
+      },
+      "required": ["type", "initiated", "phase", "last_run"]
+    },
+    "initiation": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "initiation"},
+        "company": {
+          "type": "object",
+          "required": ["name", "description"],
+          "properties": {"name": {"type": "string"}, "exchange": {"type": "string"}, "sector": {"type": "string"}, "industry": {"type": "string"}, "hq": {"type": "string"}, "employees": {"$ref": "#/$defs/num"}, "description": {"type": "string"}}
+        },
+        "segments": {"type": "array", "items": {"type": "object", "required": ["name"], "properties": {"name": {"type": "string"}, "revenue_ttm": {"$ref": "#/$defs/num"}, "share_pct": {"$ref": "#/$defs/num"}, "growth_yoy_pct": {"$ref": "#/$defs/num"}, "description": {"type": "string"}}}},
+        "market_data": {"type": "object", "properties": {"price": {"$ref": "#/$defs/num"}, "price_date": {"$ref": "#/$defs/date"}, "market_cap": {"$ref": "#/$defs/num"}, "shares_out": {"$ref": "#/$defs/num"}, "currency": {"type": "string"}, "unit": {"type": "string"}}},
+        "financials": {"type": "object", "required": ["currency", "unit", "periods"], "properties": {"currency": {"type": "string"}, "unit": {"type": "string"}, "periods": {"type": "array", "items": {"$ref": "#/$defs/period_financials"}}}},
+        "valuation": {"type": "object", "properties": {"methods": {"type": "array", "items": {"type": "object", "required": ["name", "value_per_share"], "properties": {"name": {"type": "string"}, "value_per_share": {"type": "number"}, "assumptions": {"type": "string"}}}}, "fair_value": {"$ref": "#/$defs/fair_value"}}},
+        "competitive_position": {"type": "array", "items": {"type": "string"}},
+        "key_risks": {"type": "array", "items": {"type": "string"}},
+        "stance": {"enum": ["positive", "neutral", "negative"]}
+      },
+      "required": ["type", "company", "financials", "valuation", "key_risks", "stance"]
+    },
+    "thesis": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "thesis"},
+        "stance": {"enum": ["positive", "neutral", "negative"]},
+        "statement": {"type": "string"},
+        "thesis_status": {"enum": ["intact", "strengthened", "weakened", "broken"]},
+        "conviction": {"enum": ["high", "medium", "low"]},
+        "pillars": {"type": "array", "items": {"type": "object", "required": ["id", "title", "status", "trend"], "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "expectation": {"type": "string"}, "status": {"enum": ["ahead", "on_track", "behind", "at_risk", "broken", "pending"]}, "trend": {"enum": ["improving", "stable", "deteriorating"]}, "evidence": {"type": "string"}}}},
+        "risks": {"type": "array", "items": {"type": "object", "required": ["id", "title", "status"], "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "trigger": {"type": "string"}, "status": {"enum": ["dormant", "watch", "active", "materialized"]}}}},
+        "falsifiers": {"type": "array", "items": {"type": "string"}, "description": "Observable events that would prove the thesis wrong"},
+        "fair_value": {"$ref": "#/$defs/fair_value"},
+        "last_reviewed": {"$ref": "#/$defs/date"},
+        "review_due": {"$ref": "#/$defs/date"},
+        "log": {"type": "array", "items": {"type": "object", "required": ["date", "data_point", "impact"], "properties": {"date": {"$ref": "#/$defs/date"}, "data_point": {"type": "string"}, "pillar_ids": {"type": "array", "items": {"type": "string"}}, "impact": {"enum": ["strengthens", "weakens", "neutral"]}, "status_after": {"type": "string"}, "conviction_after": {"enum": ["high", "medium", "low"]}, "source_url": {"type": "string"}}}}
+      },
+      "required": ["type", "stance", "statement", "thesis_status", "conviction", "pillars", "risks", "falsifiers", "last_reviewed", "review_due", "log"]
+    },
+    "catalysts": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "catalysts"},
+        "horizon_days": {"type": "integer"},
+        "events": {"type": "array", "items": {"type": "object", "required": ["id", "date", "title", "category", "impact", "status"], "properties": {"id": {"type": "string"}, "date": {"$ref": "#/$defs/date"}, "date_confirmed": {"type": "boolean"}, "timing": {"type": "string"}, "title": {"type": "string"}, "category": {"enum": ["earnings", "corporate", "product", "regulatory", "legal", "industry", "macro"]}, "impact": {"enum": ["high", "medium", "low"]}, "description": {"type": "string"}, "status": {"enum": ["upcoming", "occurred", "cancelled"]}, "outcome": {"type": "string"}, "source_url": {"type": "string"}}}}
+      },
+      "required": ["type", "events"]
+    },
+    "earnings_preview": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "earnings_preview"},
+        "quarter": {"$ref": "#/$defs/quarter"},
+        "report_date": {"$ref": "#/$defs/date"},
+        "consensus": {"type": "array", "items": {"$ref": "#/$defs/metric"}},
+        "what_to_watch": {"type": "array", "items": {"type": "object", "required": ["rank", "item", "why"], "properties": {"rank": {"type": "integer"}, "item": {"type": "string"}, "why": {"type": "string"}}}},
+        "scenarios": {"type": "array", "items": {"type": "object", "required": ["name", "driver"], "properties": {"name": {"enum": ["bull", "base", "bear"]}, "revenue": {"$ref": "#/$defs/num"}, "eps": {"$ref": "#/$defs/num"}, "driver": {"type": "string"}, "expected_reaction": {"type": "string"}}}},
+        "implied_move_pct": {"$ref": "#/$defs/num"}
+      },
+      "required": ["type", "quarter", "report_date", "consensus", "what_to_watch", "scenarios"]
+    },
+    "earnings": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "earnings"},
+        "quarter": {"$ref": "#/$defs/quarter"},
+        "report_date": {"$ref": "#/$defs/date"},
+        "verdict": {"enum": ["beat", "miss", "mixed", "inline"]},
+        "results": {"type": "array", "items": {"$ref": "#/$defs/metric"}},
+        "guidance": {"type": "array", "items": {"type": "string"}},
+        "highlights": {"type": "array", "items": {"type": "string"}},
+        "lowlights": {"type": "array", "items": {"type": "string"}},
+        "stock_reaction_pct": {"$ref": "#/$defs/num"},
+        "thesis_impact": {"type": "string"}
+      },
+      "required": ["type", "quarter", "report_date", "verdict", "results", "highlights", "lowlights", "thesis_impact"]
+    },
+    "model": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "model"},
+        "currency": {"type": "string"},
+        "unit": {"type": "string"},
+        "updated_through": {"$ref": "#/$defs/quarter"},
+        "periods": {"type": "array", "items": {"$ref": "#/$defs/period_financials"}},
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "changes": {"type": "array", "items": {"type": "object", "required": ["date", "metric", "period"], "properties": {"date": {"$ref": "#/$defs/date"}, "metric": {"type": "string"}, "period": {"type": "string"}, "old": {"$ref": "#/$defs/num"}, "new": {"$ref": "#/$defs/num"}, "reason": {"type": "string"}}}}
+      },
+      "required": ["type", "currency", "unit", "periods", "assumptions", "changes"]
+    },
+    "morning_note": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "morning_note"},
+        "headline": {"type": "string"},
+        "no_material_news": {"type": "boolean"},
+        "market": {"type": "object", "properties": {"last_close": {"$ref": "#/$defs/num"}, "close_date": {"$ref": "#/$defs/date"}, "change_pct": {"$ref": "#/$defs/num"}}},
+        "developments": {"type": "array", "items": {"type": "object", "required": ["headline", "take", "material"], "properties": {"headline": {"type": "string"}, "take": {"type": "string"}, "material": {"type": "boolean"}, "pillar_ids": {"type": "array", "items": {"type": "string"}}, "source_url": {"type": "string"}}}},
+        "events_ahead": {"type": "array", "items": {"type": "string"}},
+        "thesis_update_triggered": {"type": "boolean"}
+      },
+      "required": ["type", "headline", "no_material_news", "developments", "thesis_update_triggered"]
+    },
+    "sector": {
+      "allOf": [{"$ref": "#/$defs/envelope"}],
+      "properties": {
+        "type": {"const": "sector"},
+        "sector": {"type": "string"},
+        "themes": {"type": "array", "items": {"type": "object", "required": ["title", "detail"], "properties": {"title": {"type": "string"}, "detail": {"type": "string"}, "relevance": {"type": "string"}}}},
+        "peers": {"type": "array", "items": {"type": "object", "required": ["ticker", "name"], "properties": {"ticker": {"type": "string"}, "name": {"type": "string"}, "note": {"type": "string"}}}}
+      },
+      "required": ["type", "sector", "themes"]
+    },
+    "latest": {
+      "type": "object",
+      "description": "Generated by scripts/er.py build. One snapshot per ticker for the website.",
+      "required": ["schema_version", "type", "ticker", "generated_at"],
+      "properties": {"type": {"const": "latest"}}
+    },
+    "index": {
+      "type": "object",
+      "description": "Generated by scripts/er.py build. Entry point for the website.",
+      "required": ["schema_version", "type", "generated_at", "stocks"],
+      "properties": {"type": {"const": "index"}, "ticker": false}
+    },
+    "run_log": {
+      "type": "object",
+      "required": ["schema_version", "type", "run_date", "generated_at", "tasks"],
+      "properties": {
+        "type": {"const": "run_log"},
+        "ticker": false,
+        "run_date": {"$ref": "#/$defs/date"},
+        "generated_at": {"$ref": "#/$defs/datetime"},
+        "tasks": {"type": "array", "items": {"type": "object", "required": ["ticker", "task", "status"], "properties": {"ticker": {"type": "string"}, "task": {"type": "string"}, "status": {"enum": ["ok", "skipped", "failed"]}, "reason": {"type": "string"}, "outputs": {"type": "array", "items": {"type": "string"}}, "error": {"type": "string"}}}}
+      }
+    }
+  }
+}
